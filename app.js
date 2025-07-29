@@ -9,8 +9,11 @@ document.addEventListener("DOMContentLoaded", function(){
 
 	let coin = localStorage.getItem("Coins");
 	let upCoin = localStorage.getItem("UpCoin");
+	let boost = localStorage.getItem("boost");
 	let lvl = 1;
 	let theme = 0; // "light" - 0 / "dark" - 1
+
+	boost = 0;
 
 	function skin(){
 		const skin = document.getElementById("image");
@@ -48,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function(){
 	function setup(){
 		textCoin.innerHTML = coin;
 		textLvl.innerHTML = "LVL: " + lvl;
-		upCoin = 1;
+		upCoin = 10;
 		skin();
 	}
 
@@ -71,7 +74,22 @@ document.addEventListener("DOMContentLoaded", function(){
 	})
 
 	boostBut.addEventListener("click", function(){
-		upCoin = 100;
+		if(boost==0 & coin>=500){
+			upCoin = 25;
+			coin = -500;
+			boost = +1
+		}
+		if(boost==1 & coin>=2500){
+			upCoin = 100;
+			coin = -2500;
+			boost = +1;
+		}
+		if(boost==2 & coin>=25000){
+			upCoin = 500;
+			coin = -25000;
+			boost = +1;
+		}
+		
 	})
 
 	themeBut.addEventListener("click", function(){
