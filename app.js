@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function(){
 	})
 
 	boostBut.addEventListener("click", function(){
-
+		upCoin = 100;
 	})
 
 	themeBut.addEventListener("click", function(){
